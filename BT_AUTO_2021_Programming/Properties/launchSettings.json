@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BT_AUTO_2021_Programming": {
+      "commandName": "Project",
+      "commandLineArgs": "2+9 caca magar"
+    }
+  }
+}

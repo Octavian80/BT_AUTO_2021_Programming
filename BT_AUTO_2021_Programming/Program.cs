@@ -227,6 +227,101 @@ namespace BT_AUTO_2021_Programming
             
             Console.WriteLine("February has {0} days" , febDays);
 
+            ///calculator
+            if (args[0].Length == 3)
+            {
+                 
+                string arg = args[0];
+                float n1 = float.Parse(arg[0].ToString());
+                float n2 = float.Parse(arg[2].ToString());
+                string op = arg[1].ToString();
+                // implement calculator logic here
+                switch (op)
+                {
+                    case "+":
+                        {
+                            float rez = n1 + n2;
+                            Console.WriteLine("Suma este: " + rez);
+                            break;
+                        }
+
+
+                    case "-":
+                        {
+                            float rez = n1 - n2;
+                            Console.WriteLine("Diferenta este: " + rez);
+                            break;
+                        }
+
+
+                    case "*":
+                        {
+                            float rez = n1 * n2;
+                            Console.WriteLine("Inmultirea este: " + rez);
+                            break;
+                        }
+
+                    case "/":
+                        {
+                            float rez = n1 / n2;
+                            Console.WriteLine("Impartirea este: " + rez);
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Not a valid sign!");
+                            break;
+                        }
+
+                }
+
+
+
+                
+            }
+            else
+            {
+                Console.WriteLine("3 args are needed!");
+            }
+
+
+            ///calculator
+            int suma  = 0;
+            for (int i = 1;i <= 100;i++)
+            {
+                suma = suma + i;
+            }
+            Console.WriteLine("Suma primelor 100 numere este: " + suma);
+
+            int numar = 45833854;
+            string numars = numar.ToString();
+            string numarinv = "";
+
+            for (int i = numars.Length-1; i >= 0; i--)
+                numarinv = numarinv + numars[i].ToString();
+
+
+            Console.WriteLine("numar: " + numars);
+            Console.WriteLine("numar inv: " + numarinv);
+
+            if(numars == numarinv)
+                Console.WriteLine("Este palindrom ");
+            else
+            Console.WriteLine("NU este palindrom ");
+
+
+            int numarmax = 30;
+            for(int i= 1;i<=numarmax;i++)
+            {
+                bool esteprim = true;
+                for (int j = 2; j < i ; j++) 
+                if (i%j==0) esteprim = false;
+
+                if(esteprim)
+                Console.WriteLine("numarul este prim " + i);
+            }
+            
+
         }
     }
 }
