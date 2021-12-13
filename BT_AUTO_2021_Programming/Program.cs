@@ -6,10 +6,15 @@ namespace BT_AUTO_2021_Programming
     {
         static void Main(string[] args)
         {
+            //Course01(args);
+            Course02(args);
+        }
+        static void  Course01(string[]args)
+        {
             const int MAX_SIZE = 100;
             const double PI = 3.141592;
             const int MAX_NUMBER = 5;
-            
+
             Console.WriteLine("Hello World!");
             Console.WriteLine("Ana are mere");
 
@@ -25,7 +30,7 @@ namespace BT_AUTO_2021_Programming
             double numberDouble = 5.6;
 
             float f = (float)numberDouble;
-            int numberInt=(int)f;
+            int numberInt = (int)f;
 
 
 
@@ -57,18 +62,18 @@ namespace BT_AUTO_2021_Programming
             int number = 8;
             Console.WriteLine("Number tested is" + number);
 
-            if (number >=0)
+            if (number >= 0)
             {
-                Console.WriteLine("Number is positive!");    
-                    
-                    }
+                Console.WriteLine("Number is positive!");
+
+            }
 
             else
-            { 
+            {
                 Console.WriteLine("Number is negative");
             }
 
-            if(number % 2== 0)
+            if (number % 2 == 0)
             {
                 Console.WriteLine("Even number!");
             }
@@ -77,9 +82,9 @@ namespace BT_AUTO_2021_Programming
                 Console.WriteLine("Odd number!");
             }
 
-            if(number <= 40 && number >=0 )
+            if (number <= 40 && number >= 0)
             {
-                if (number<=20)
+                if (number <= 20)
                 {
                     Console.WriteLine("Student failed!");
                 }
@@ -95,7 +100,7 @@ namespace BT_AUTO_2021_Programming
             }
 
             //One line if/else
-            String message=(number % 2==0) ? "Even":"Odd";
+            String message = (number % 2 == 0) ? "Even" : "Odd";
             Console.WriteLine(message);
 
             if (number == 1)
@@ -106,33 +111,33 @@ namespace BT_AUTO_2021_Programming
             {
                 Console.WriteLine("Tuesday");
             }
-            if(number == 3)
+            if (number == 3)
             {
-                Console.WriteLine ("Wednesday");
+                Console.WriteLine("Wednesday");
             }
-            if(number==5)
+            if (number == 5)
             {
-                Console.WriteLine ("Thursday");
+                Console.WriteLine("Thursday");
 
             }
-            if(number==5)
+            if (number == 5)
             {
-                Console.WriteLine ("Friday");
+                Console.WriteLine("Friday");
             }
-            if(number==6)
+            if (number == 6)
             {
-                Console.WriteLine ("Saturday");
+                Console.WriteLine("Saturday");
             }
-            if(number==7)
+            if (number == 7)
             {
-                Console.WriteLine ("Sunday");
+                Console.WriteLine("Sunday");
             }
-            if(number<1 || number >7)
+            if (number < 1 || number > 7)
             {
                 Console.WriteLine("Sorry not a valid day!");
             }
 
-            switch(number)
+            switch (number)
             {
                 case 1:
                     {
@@ -177,7 +182,7 @@ namespace BT_AUTO_2021_Programming
             }
 
             int counter = 0;
-            while (counter <=MAX_NUMBER)
+            while (counter <= MAX_NUMBER)
             {
                 Console.WriteLine("Current number is:" + counter);
                 counter++;
@@ -191,7 +196,7 @@ namespace BT_AUTO_2021_Programming
             }
             while (counter <= 5);
 
-            for (counter=0;counter <=MAX_NUMBER;counter++)
+            for (counter = 0; counter <= MAX_NUMBER; counter++)
             {
                 //Console.WriteLine("Current number is:" + counter);
                 Console.WriteLine("Current number is {0}", counter);
@@ -199,7 +204,7 @@ namespace BT_AUTO_2021_Programming
 
             foreach (string argument in args)
             {
-                Console.WriteLine("The argument is: {0}", argument );
+                Console.WriteLine("The argument is: {0}", argument);
             }
 
             for (counter = 0; counter < args.Length; counter++)
@@ -210,27 +215,27 @@ namespace BT_AUTO_2021_Programming
             int year = 1900;
             int febDays = 28;
 
-            if(year % 4 == 0)
+            if (year % 4 == 0)
             {
-                if(year % 100==0 && year % 400 !=0)
+                if (year % 100 == 0 && year % 400 != 0)
                 {
                     febDays = 29;
                 }
-                
-                if(year %100 !=0)
+
+                if (year % 100 != 0)
                 {
                     febDays = 29;
                 }
-             
+
 
             }
-            
-            Console.WriteLine("February has {0} days" , febDays);
+
+            Console.WriteLine("February has {0} days", febDays);
 
             ///calculator
             if (args[0].Length == 3)
             {
-                 
+
                 string arg = args[0];
                 float n1 = float.Parse(arg[0].ToString());
                 float n2 = float.Parse(arg[2].ToString());
@@ -277,7 +282,7 @@ namespace BT_AUTO_2021_Programming
 
 
 
-                
+
             }
             else
             {
@@ -286,8 +291,8 @@ namespace BT_AUTO_2021_Programming
 
 
             ///calculator
-            int suma  = 0;
-            for (int i = 1;i <= 100;i++)
+            int suma = 0;
+            for (int i = 1; i <= 100; i++)
             {
                 suma = suma + i;
             }
@@ -297,34 +302,71 @@ namespace BT_AUTO_2021_Programming
             string numars = numar.ToString();
             string numarinv = "";
 
-            for (int i = numars.Length-1; i >= 0; i--)
+            for (int i = numars.Length - 1; i >= 0; i--)
                 numarinv = numarinv + numars[i].ToString();
 
 
             Console.WriteLine("numar: " + numars);
             Console.WriteLine("numar inv: " + numarinv);
 
-            if(numars == numarinv)
+            if (numars == numarinv)
                 Console.WriteLine("Este palindrom ");
             else
-            Console.WriteLine("NU este palindrom ");
+                Console.WriteLine("NU este palindrom ");
 
 
             int numarmax = 30;
-            for(int i= 1;i<=numarmax;i++)
+            for (int i = 1; i <= numarmax; i++)
             {
                 bool esteprim = true;
-                for (int j = 2; j < i ; j++) 
-                if (i%j==0) esteprim = false;
+                for (int j = 2; j < i; j++)
+                    if (i % j == 0) esteprim = false;
 
-                if(esteprim)
-                Console.WriteLine("numarul este prim " + i);
+                if (esteprim)
+                    Console.WriteLine("numarul este prim " + i);
             }
-            
 
 
 
 
+
+        }
+
+         static void Course02(string[]args)
+        {
+            Circle c1 = new Circle();
+            Circle c2;// c2 will be null!!!
+            c1.SetRadius(10);
+            /* double area = c1.GetArea();*/
+            /* Console.WriteLine(c1.GetArea());*/
+            c1.PrintCircle();
+            Circle c3 = new Circle();
+            c3.SetRadius(5);
+            /*Console.WriteLine(c3.GetArea());*/
+            c3.PrintCircle();
+            foreach(string Z in args)
+            {
+                Circle c = new Circle();
+                c.SetRadius(Double.Parse(Z));
+                Square s = new Square();
+                s.SetSide(Double.Parse(Z));
+                Rectangle r = new Rectangle();
+                r.SetSize(Double.Parse(Z), Double.Parse(Z));
+                c.PrintCircle();
+                s.PrintSquare();
+                r.PrintRectangle();
+            }
+            Person p1 = new Person();
+            p1.SetName("Alex");
+            p1.Setsex('m');
+            p1.Eat();
+            p1.Run();
+            p1.Eat();
+            p1.PrintPerson();
+
+            Rectangle r1 = new Rectangle();
+            r1.SetSize(2, 3);
+            r1.PrintRectangle();
         }
     }
 }

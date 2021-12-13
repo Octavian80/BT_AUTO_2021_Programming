@@ -7,11 +7,11 @@ namespace BT_AUTO_2021_Programming
     class Circle
     {
         double radius;
-        const double PI = 3.1415;
+        //const double PI = 3.1415;
 
-        public void SetRadius(double circleRadius)
+       public void SetRadius(double radius)
         {
-            radius = circleRadius;
+            this.radius = radius;
         }
 
         public double GetArea()
@@ -22,7 +22,7 @@ namespace BT_AUTO_2021_Programming
 
         public void PrintCircle()
         {
-            Console.WriteLine("Circle with radius{0) has the area{1}", radius,GetArea());
+            Console.WriteLine("Circle with radius {0} has the area{1}", radius,GetArea());
         }
     }
 }

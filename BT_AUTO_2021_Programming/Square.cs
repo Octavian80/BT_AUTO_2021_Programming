@@ -7,9 +7,9 @@ namespace BT_AUTO_2021_Programming
     class Square
     {
         double side;
-        public void SetSide (double s)
+        public void SetSide (double side)
         {
-            side = s;
+           this.side = side;
         }
         public double GetArea()
         {
