@@ -326,9 +326,37 @@ namespace BT_AUTO_2021_Programming
                     Console.WriteLine("numarul este prim " + i);
             }
 
+            //// exercitii///
 
+            int q = 0;
+            int numarulmax = 7;
+            int sumalor = 0;
 
+            for (q = 1; q <= numarulmax; q++)
+            {
+                Console.WriteLine("Numarul este :" + q);
+                sumalor = sumalor + q;
+            }
+            Console.WriteLine("Suma numelor este :" + sumalor);
 
+            int numero = 59;
+            int r;
+            int sum = 0; 
+            int t;
+
+            for (t=numero; numero != 0; numero = numero / 10) 
+            {
+                r = numero % 10;
+                sum = sum*10 + r;
+            }
+            if(t==sum)
+            {
+                Console.WriteLine("Is a palindrome number" + t);
+            }
+            else
+            {
+                Console.WriteLine("Is not a palindrome number" + t);
+            }
 
         }
 
