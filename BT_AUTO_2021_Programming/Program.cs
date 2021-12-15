@@ -7,7 +7,8 @@ namespace BT_AUTO_2021_Programming
         static void Main(string[] args)
         {
             //Course01(args);
-            Course02(args);
+            // Course02(args);
+            Course03(args);
         }
         static void  Course01(string[]args)
         {
@@ -395,6 +396,38 @@ namespace BT_AUTO_2021_Programming
             Rectangle r1 = new Rectangle();
             r1.SetSize(2, 3);
             r1.PrintRectangle();
+
+
+        }
+
+        static void Course03(string[]args)
+        {
+         if (args.Length !=3)
+            {
+                Console.WriteLine("The application receives only 3 parameters");
+            }
+            else
+            {
+                Console.WriteLine("{0}{ 1}{2}", args[0], args[1],args[2]);
+                //double amount = Double.Parse(args[0]);
+               // string currency = args[1];
+                //double conversionrate=Double.Parse(args[2]);
+               // Console.WriteLine("By converting {0}{1} into RON", amount, currency , amount*conversionrate);
+                CurrencyCalcutor(double.Parse(args[0]), args[1],Double.Parse(args[2]));
+            }
+            CurrencyCalcutor(156, "USD", 4.3734);
+         
+        }
+
+        
+        static void CurrencyCalcutor (double amount , string currency,double conversionrate )
+        {
+            Console.WriteLine("By converting {0}{1} into RON we obtain {2}RON", amount, currency, amount * conversionrate);
+        }
+
+        static void GuessNumber(int n)
+        {
+
         }
     }
 }
