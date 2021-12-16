@@ -402,32 +402,88 @@ namespace BT_AUTO_2021_Programming
 
         static void Course03(string[]args)
         {
-         if (args.Length !=3)
-            {
-                Console.WriteLine("The application receives only 3 parameters");
-            }
-            else
-            {
-                Console.WriteLine("{0}{ 1}{2}", args[0], args[1],args[2]);
-                //double amount = Double.Parse(args[0]);
-               // string currency = args[1];
-                //double conversionrate=Double.Parse(args[2]);
-               // Console.WriteLine("By converting {0}{1} into RON", amount, currency , amount*conversionrate);
-                CurrencyCalcutor(double.Parse(args[0]), args[1],Double.Parse(args[2]));
-            }
+            //ComputeConversion(args);
             CurrencyCalcutor(156, "USD", 4.3734);
-         
+            Shape s = GetShape(12, 34, 12.4, 'a', "172d");
+            // Console.WriteLine(ConcatenateStrings(args));
+            Random rnd = new Random();
+            GuessNumber(rnd. Next(1, 1000));
         }
 
-        
-        static void CurrencyCalcutor (double amount , string currency,double conversionrate )
+        static bool IsoddNumber(int number)
         {
-            Console.WriteLine("By converting {0}{1} into RON we obtain {2}RON", amount, currency, amount * conversionrate);
+            return number % 2 != 0;
+        }
+
+        static int TestValue(int testVal, int target)
+        {
+            
+            
+            if (testVal < target)
+            {
+                Console.WriteLine("Number to be guess is higher !");
+                return -1;
+            }
+            if (testVal > target)
+            {
+                Console.WriteLine("Number to be guess is lower !");
+                return 1;
+            }
+            Console.WriteLine("This is number ");
+            return 0;
         }
 
         static void GuessNumber(int n)
         {
+            int currentNumber = 0;
+            do
+            {
+                currentNumber = int.Parse(Console.ReadLine());
+                Console.WriteLine("Number chosen is {0}", currentNumber);
+            }
+            while (TestValue(currentNumber,n)!=0);
+
+            
+        }
+        static Shape GetShape(int x, int y, double a, char t , String s)
+        {
+            Console.WriteLine(x);
+            return new Shape();
+        }
+
+        static string ConcatenateStrings(string[]args)
+        {
+            string returnString = "";
+            foreach(string s in args)
+            {
+                returnString += s;//returnString=returnString+s
+            }
+            return returnString;
+        }
+
+        static void ComputeConversion(string[]args)
+        {
+            if (args.Length != 3)
+            {
+                Console.WriteLine("The application receives only 3 parameters: amount , currency, exchange rate");
+            }
+            else
+            {
+                Console.WriteLine("{0}{1}{2}", args[0], args[1], args[2]);
+
+                CurrencyCalcutor(Double.Parse(args[0]), args[1], Double.Parse(args[2]));
+            }
 
         }
+        
+        static void CurrencyCalcutor (double amount , String currency,double conversionRate )
+        {
+            Console.WriteLine("By converting {0}{1} into RON we obtain {2}RON", amount, currency, amount * conversionRate);
+        }
+
+        
+        
+
+        
     }
 }
