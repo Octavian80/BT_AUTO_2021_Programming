@@ -8,6 +8,18 @@ namespace BT_AUTO_2021_Programming
     {
         double lenght;
         double width;
+
+        public Rectangle(double lenght, double width)
+        {
+            this.lenght = lenght;
+            this.width = width;
+        }
+
+        public Rectangle()
+        {
+
+        }
+
         public void SetSize(double leght ,double width)
         {
             this.lenght = lenght;
