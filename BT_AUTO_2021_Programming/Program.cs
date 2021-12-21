@@ -6,11 +6,126 @@ namespace BT_AUTO_2021_Programming
     {
         static void Main(string[] args)
         {
+            //Exercises (args);
             //Course01(args);
             // Course02(args);
-              // Course03(args);
-               Course04();
+            // Course03(args);
+            //Course04();
+             Course05();
         }
+
+        static void Exercises (string[]args)
+        {
+
+
+            /*  Console.Write("Enter a number:");
+              double num1 = Convert.ToDouble(Console.ReadLine());
+
+              Console.Write("Enter a operator:");
+              string op = Console.ReadLine();
+
+
+              Console.Write("Enter a number:");
+              double num2 = Convert.ToDouble(Console.ReadLine());
+
+              if (op == "+")
+              {
+                  Console.WriteLine(num1 + num2);
+              }
+              else if (op == "-")
+              {
+                  Console.WriteLine(num1 - num2);
+              }
+              else if (op == "/")
+              {
+                  Console.WriteLine(num1 / num2);
+              }
+              else if (op == "*")
+              {
+                  Console.WriteLine(num1 * num2);
+              }
+
+              else
+              {
+                  Console.WriteLine("Invalid operator");
+              }
+              */
+
+
+            /*  int index = 1;
+              while (index <= 5)
+              {
+                  Console.WriteLine(index);
+                  index++;
+              } */
+
+            /*
+            int x = 14;
+            int y = 15;
+            
+            if (x==y)
+            {
+                Console.WriteLine("Numere sunt egale");
+            }
+            else
+            {
+                Console.WriteLine("Numere nu sunt egale");
+            } */
+
+
+            /*  int x=5;
+              int y=x % 2;
+
+              if (y == 0)
+              {
+                  Console.WriteLine("Numar este impar");
+              }
+              else
+              {
+                  Console.WriteLine("Numarul este par");
+              } */
+
+
+            /* int x = 15;
+
+               if (x>=0)
+                {
+                    Console.WriteLine("Numar este pozitiv ");
+                }
+                else
+                {
+                    Console.WriteLine("Numarul este negativ");
+                } */
+
+
+          /*  int x = 51;
+            int y = 25;
+            int z = 10;
+
+            if (x>y  && x>z)
+            {
+                Console.WriteLine("Numarul cel mai mare este: " + x);
+            }
+            if (x<y && y>z)
+            {
+                Console.WriteLine("Numarul cel mai mai mare este" + y);
+            }
+            if(z>x && z>y)
+            {
+                Console.WriteLine("Numarul cel mai mare este" + z);
+            }*/
+
+            
+
+
+
+
+
+
+
+
+            }
+        
         static void  Course01(string[]args)
         {
             const int MAX_SIZE = 100;
@@ -447,6 +562,33 @@ namespace BT_AUTO_2021_Programming
             Console.WriteLine(r2.GetVolume());
         }
 
+        static void Course05()
+        {
+            DrawShapeOutline(5);
+            DrawShapeOutline(10,5);
+            DrawFullShape(7);
+
+            Circle c = new Circle(4);
+            c.Draw();
+            Triangle t1 = new Triangle(5,7,9);
+            t1.Draw();
+            Square s1 = new Square(5);
+            Rectangle r1 = new Rectangle(2,7);
+            Console.WriteLine(s1.GetArea());
+            Console.WriteLine(r1.GetArea());
+            Console.WriteLine(c.ToString());
+            Console.WriteLine(t1.ToString());
+            Console.WriteLine(r1.ToString());
+            Console.WriteLine(s1.ToString());
+
+            Teacher teacher1 = new Teacher("Programming","UPB",2000,"Gigel Programatoru",'m');
+            teacher1.PrintTeacher();
+
+            Student student1 = new Student("AN1", true,true,"Andreea A", 'f');
+            student1.PrintStudent();
+
+
+        }
 
         public static void DrawShapeOutline(int width , int height)
         {
@@ -474,6 +616,11 @@ namespace BT_AUTO_2021_Programming
 
             }
 
+        }
+
+        public static void DrawShapeOutline(int l)
+        {
+            DrawShapeOutline(l, l);
         }
 
 
@@ -506,6 +653,8 @@ namespace BT_AUTO_2021_Programming
             }
         }
 
+        
+
         public static void DrawFullShape (int width, int height)
         {
             for (int j = 0; j < height; j++)
@@ -518,6 +667,15 @@ namespace BT_AUTO_2021_Programming
               
             }
         }
+
+        public static void DrawFullShape(int l)
+        {
+            DrawFullShape(l, l);
+        }
+
+        
+
+
         public static void DrawFullShape2(int width, int height)
         {
             String s = "";
