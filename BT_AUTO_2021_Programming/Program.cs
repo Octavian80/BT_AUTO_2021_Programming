@@ -11,7 +11,24 @@ namespace BT_AUTO_2021_Programming
             // Course02(args);
             // Course03(args);
             //Course04();
-             Course05();
+            // Course05();
+              Course06();
+
+        }
+        private static void Course06()
+        {
+            Car c1 = new Car(true, 20, 90);
+            Car c2 = new Car(false, 0, -90);
+            c1.Start();
+            c1.Accelerate();
+            c1.TurnLeft();
+            c1.TurnRight();
+
+            Console.WriteLine(Car.ConvertHpToKw(150));
+            Rectangle r1 = new Rectangle(3, 4);
+            Console.WriteLine("Area is {0} Perimeter is {1} Diagonal is {2}", r1.GetArea(), r1.GetPerimeter(), r1.GetDiagonal());
+
+
         }
 
         static void Exercises (string[]args)

@@ -20,7 +20,17 @@ namespace BT_AUTO_2021_Programming
 
         }
 
-        public void SetSize(double leght ,double width)
+        public double GetLenght()
+        {
+            return lenght;
+        }
+        public void SetLenght()
+        {
+            if (lenght>0)
+            this.lenght = lenght;
+        }
+
+        public void SetSize(double lenght ,double width)
         {
             this.lenght = lenght;
             this.width = width;
@@ -28,6 +38,17 @@ namespace BT_AUTO_2021_Programming
         public virtual double GetArea()
             {
             return lenght * width;
+
+        }
+
+        public virtual Double GetPerimeter()
+        {
+            return 2 * (lenght + width);
+        }
+        public virtual double GetDiagonal()
+        {
+            return Math.Sqrt(Math.Pow(width, 2)+ Math.Pow(lenght,2));
+
         }
         public void PrintRectangle()
         {
