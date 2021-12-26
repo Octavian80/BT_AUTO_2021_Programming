@@ -25,9 +25,23 @@ namespace BT_AUTO_2021_Programming
             c1.TurnRight();
 
             Console.WriteLine(Car.ConvertHpToKw(150));
-            Rectangle r1 = new Rectangle(3, 4);
-            Console.WriteLine("Area is {0} Perimeter is {1} Diagonal is {2}", r1.GetArea(), r1.GetPerimeter(), r1.GetDiagonal());
 
+            Rectangle r1 = new Rectangle(3, 4);
+            r1.PrintRectangle();
+            
+            r1.SetLenght(10);
+            r1.PrintRectangle();
+
+            c2.Start();
+            c2.GerUp();
+            c2.Accelerate(20);
+            c2.Steer(20);
+            c2.Accelerate(10);
+            c2.GerUp();
+            c2.Accelerate();
+            c2.PrintCar();
+
+            c2.CarBrand = "Name";
 
         }
 
