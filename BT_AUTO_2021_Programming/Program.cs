@@ -6,15 +6,18 @@ namespace BT_AUTO_2021_Programming
     {
         static void Main(string[] args)
         {
-            //Exercises (args);
+            Exercises (args);
             //Course01(args);
             // Course02(args);
             // Course03(args);
             //Course04();
             // Course05();
-              Course06();
+             //Course06();
+            
 
         }
+
+        
         private static void Course06()
         {
             Car c1 = new Car(true, 20, 90);
@@ -45,7 +48,7 @@ namespace BT_AUTO_2021_Programming
 
         }
 
-        static void Exercises (string[]args)
+        static void Exercises(string[] args)
         {
 
 
@@ -129,23 +132,47 @@ namespace BT_AUTO_2021_Programming
                 } */
 
 
-          /*  int x = 51;
-            int y = 25;
-            int z = 10;
+            /*  int x = 51;
+              int y = 25;
+              int z = 10;
 
-            if (x>y  && x>z)
-            {
-                Console.WriteLine("Numarul cel mai mare este: " + x);
-            }
-            if (x<y && y>z)
-            {
-                Console.WriteLine("Numarul cel mai mai mare este" + y);
-            }
-            if(z>x && z>y)
-            {
-                Console.WriteLine("Numarul cel mai mare este" + z);
-            }*/
+              if (x>y  && x>z)
+              {
+                  Console.WriteLine("Numarul cel mai mare este: " + x);
+              }
+              if (x<y && y>z)
+              {
+                  Console.WriteLine("Numarul cel mai mai mare este" + y);
+              }
+              if(z>x && z>y)
+              {
+                  Console.WriteLine("Numarul cel mai mare este" + z);
+              }*/
 
+            /*Volume volume = new Volume();
+            volume.GetVolume(2);
+
+            Console.WriteLine(volume.GetVolume(2));*/
+
+
+            Author author1 = new Author("Oros Octavoian", "oti@yahoo.com");
+            Author author2 = new Author("Oros Octavoian", "oti@yahoo.com");
+            Book book1 = new Book("Povesti Nemuritoare", 1980, 20, author1); 
+
+            
+        
+
+            Console.WriteLine("Book: "+book1.GetName() + "(" +book1.GetPrice()+ " RON)" + ", by " + book1.GetAuthor() +", publihed in "+book1.GetYear());
+
+            
+
+            
+
+            
+
+
+            
+           
             
 
 
@@ -155,8 +182,11 @@ namespace BT_AUTO_2021_Programming
 
 
 
-            }
+
+        }
+
         
+
         static void  Course01(string[]args)
         {
             const int MAX_SIZE = 100;
