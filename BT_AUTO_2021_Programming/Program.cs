@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BT_AUTO_2021_Programming
 {
@@ -6,13 +7,14 @@ namespace BT_AUTO_2021_Programming
     {
         static void Main(string[] args)
         {
-            Exercises (args);
+            //Exercises (args);
             //Course01(args);
             // Course02(args);
             // Course03(args);
             //Course04();
             // Course05();
-             //Course06();
+            //Course06();
+             Course07();
             
 
         }
@@ -647,6 +649,69 @@ namespace BT_AUTO_2021_Programming
 
             Student student1 = new Student("AN1", true,true,"Andreea A", 'f');
             student1.PrintStudent();
+
+
+        }
+
+        private static void Course07()
+        {
+            Square s1 = new Square();
+            Rectangle r1 = new Rectangle();
+            Shape sh1 = new Shape();
+
+            //polymorhism
+
+            IShape s2 = new Square();
+            IShape r2 = new Rectangle();
+            IShape sh2 = new Shape();
+
+            List < string >lista = new List<string>();
+            List<IShape> shapeList = new List<IShape>();
+            shapeList.Add(s2);
+            shapeList.Add(r2);
+            shapeList.Add(sh2);
+            shapeList.Add(s1);
+
+            s1.Draw();
+            s2.Draw();
+            s2.State();
+            ((AbstractShape)s2).DoSomething();
+
+            s1.PrintSquare();
+            ((Square)s2).PrintSquare();
+
+
+            // example fo using polymorphism
+            Shape sh3;
+            string type = "rectangle";
+
+            switch (type)
+            {
+                case "square":
+                    {
+                        sh3 = new Square();
+                        break;
+
+                     }
+
+                case "rectangle":
+                    {
+                        sh3 = new Rectangle();
+                        break;
+                    }
+                default:
+                    {
+                        sh3 = new Shape();
+                        break;
+                    }
+
+
+            }
+            sh3.Draw();
+
+            PartialClass pc = new PartialClass();
+            pc.Method1();
+            pc.Method2();
 
 
         }

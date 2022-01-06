@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BT_AUTO_2021_Programming
 {
-    class Shape
+    class Shape :AbstractShape
     {
         ConsoleColor color;
          
@@ -12,7 +12,7 @@ namespace BT_AUTO_2021_Programming
         {
 
         }
-        public virtual void Draw()
+        public override void Draw()
         {
             Console.WriteLine("We are drawing a shape");
         }
@@ -35,5 +35,12 @@ namespace BT_AUTO_2021_Programming
         {
             return "This is a generic shape !!";
         }
+
+        public override void Color()
+        {
+            Console.WriteLine("Coloring the shape");
+        }
+
+        
     }
 }
