@@ -22,12 +22,77 @@ namespace BT_AUTO_2021_Programming
             // Course05();
             //Course06();
             // Course07();
-               Course08();
+              // Course08();
+            Course09(args);
             
 
         }
 
-        
+        private static void RecursiveMethod()
+        {
+            RecursiveMethod();
+        }
+        private static void Course09(string[] args)
+        {
+            try
+            {
+                Console.WriteLine(args[0]);
+                int x = int.Parse(args[0]);
+                int y = 0;
+                int z = 7 / x;
+            }
+            catch(IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Index out of bounds");
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine("Failed to convert to INT");
+            }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine("Cannot divide by 0");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("There is an exception");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+
+       
+            finally
+            {
+                Console.WriteLine("The finally block always executes");
+            } 
+            
+            
+            //throw new NotImplementedException();
+            
+
+            Shape sh=new Shape();
+            try
+            {
+                sh.Draw();
+            }
+            finally
+            {
+                sh.Dispose();
+                
+            }
+            //this is equivalent to try finally
+            using (Shape s2 =new Shape())
+            {
+                s2.Draw();
+            }
+
+            
+
+            
+
+
+        }
+
         private static void Course06()
         {
             Car c1 = new Car(true, 20, 90);
