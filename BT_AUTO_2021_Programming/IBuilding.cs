@@ -6,12 +6,13 @@ namespace BT_AUTO_2021_Programming
 {
     interface IBuilding
     {
-        void ComputingArea();
-        void GetNumberOfFloors();
+        double ComputingArea();
 
-        void GetTotalNumberOfRooms();
+        int GetNumberOfFloors();
 
-        void TotalCapacity();
+        int GetTotalNumberOfRooms();
+
+        int TotalCapacity();
 
 
     }

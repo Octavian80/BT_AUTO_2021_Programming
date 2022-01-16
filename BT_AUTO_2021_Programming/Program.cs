@@ -31,6 +31,21 @@ namespace BT_AUTO_2021_Programming
 
         private static void Homework()
         {
+
+            Room room1 = new Room();
+            Floor floor1 = new Floor(2, 1, 1, 1, room1);
+            DepositSpace depositSpace1 = new DepositSpace(12, 2, 1, 0, 5);
+            Kitchen kitchen1 = new Kitchen(25, 1, 2, 1, 1,1);
+            MeetingRoom meetingRoom1 = new MeetingRoom(20, 6, 3, 5, 1,2,5);
+            WorkingSpace workingSpace1 = new WorkingSpace(1, 1, 1, 1, 1,1);
+            var room1 = depositSpace1;
+
+
+            
+
+
+            List<Room> roomsList1 = new List<Room>();
+
            
         }
 
