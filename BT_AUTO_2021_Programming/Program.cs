@@ -32,21 +32,66 @@ namespace BT_AUTO_2021_Programming
         private static void Homework()
         {
 
-            Room room1 = new Room();
-            Floor floor1 = new Floor(2, 1, 1, 1, room1);
-            DepositSpace depositSpace1 = new DepositSpace(12, 2, 1, 0, 5);
-            Kitchen kitchen1 = new Kitchen(25, 1, 2, 1, 1,1);
-            MeetingRoom meetingRoom1 = new MeetingRoom(20, 6, 3, 5, 1,2,5);
-            WorkingSpace workingSpace1 = new WorkingSpace(1, 1, 1, 1, 1,1);
-            var room1 = depositSpace1;
+            Kitchen Bucatarie = new Kitchen(1, 2, 3, 4, 5, 6);
+            DepositSpace Camara = new DepositSpace(1, 2, 3, 4, 5);
+            MeetingRoom Living = new MeetingRoom(1, 2, 3, 4, 5, 6, 7);
+            WorkingSpace Birou = new WorkingSpace(1, 2, 3, 4, 5, 6);
+
+            List<Room> camere;
+            List<Floor> etaje;
+            Building cladire; 
+
+            etaje = new List<Floor>();
+
+            camere = new List<Room>();
+            camere.Add(Bucatarie);
+            camere.Add(Camara);
+            camere.Add(Camara);
+            camere.Add(Living);
+            camere.Add(Birou);
+            etaje.Add(new Floor(camere));
+
+            camere = new List<Room>();
+            camere.Add(Bucatarie);
+            camere.Add(Bucatarie);
+            camere.Add(Camara);
+            camere.Add(Living);
+            camere.Add(Camara);
+            etaje.Add(new Floor(camere));
 
 
-            
+            camere = new List<Room>();
+            camere.Add(Bucatarie);
+            camere.Add(Bucatarie);
+            camere.Add(Birou);
+            camere.Add(Living);
+            camere.Add(Camara);
+            etaje.Add(new Floor(camere));
 
 
-            List<Room> roomsList1 = new List<Room>();
+            camere = new List<Room>();
+            camere.Add(Bucatarie);
+            camere.Add(Birou);
+            camere.Add(Camara);
+            camere.Add(Living);
+            camere.Add(Camara);
+            etaje.Add(new Floor(camere));
 
-           
+             
+            camere = new List<Room>();
+            camere.Add(Birou);
+            camere.Add(Bucatarie);
+            camere.Add(Camara);
+            camere.Add(Living);
+            camere.Add(Camara);
+            etaje.Add(new Floor(camere));
+             
+            cladire = new Building(etaje);
+
+            Building.PrintBuilding(cladire);
+
+
+
         }
 
         private static void RecursiveMethod()

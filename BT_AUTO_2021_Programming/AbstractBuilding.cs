@@ -6,7 +6,7 @@ namespace BT_AUTO_2021_Programming
 {
     abstract class AbstractBuilding : IBuilding
     {
-       abstract public double ComputingArea();
+        public abstract double ComputingArea();
 
 
         public abstract int GetNumberOfFloors();

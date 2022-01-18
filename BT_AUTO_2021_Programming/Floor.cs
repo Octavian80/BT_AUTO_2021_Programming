@@ -4,28 +4,38 @@ using System.Text;
 
 namespace BT_AUTO_2021_Programming
 {
-    class Floor: Building 
+    class Floor 
     {
 
-        int totalMeetingRoom;
-        int totalKitchen;
-        int totalWorkingSpace;
-        int totalDepositSpace;
-        Room room;
-        
+        List<Room> roomList;
 
-        public Floor(int totalMeetingRoom, int totalKitchen, int totalWorkingSpace, int totalDepositSpace, Room room)
+        public Floor(List<Room> roomList)
         {
-            this.totalMeetingRoom = totalMeetingRoom;
-            this.totalKitchen = totalKitchen;
-            this.totalWorkingSpace = totalWorkingSpace;
-            this.totalDepositSpace = totalDepositSpace;
-            this.room = room;
-            
+            this.roomList = roomList;
         }
 
-        public Floor()
+        public int GetCapacity()
         {
+
+            int nr = 0;
+            foreach (Room rom in roomList)
+                nr = nr + rom.GetRoomCapacity();
+            return nr;
         }
+
+        public int GetNrRooms()
+        {
+            return roomList.Count; ;
+        }
+
+        public double ComputeArea()
+        {
+
+            double nr = 0;
+            foreach (Room rom in roomList)
+                nr = nr + rom.GetRoomArea();
+            return nr;
+        }
+         
     }
 }

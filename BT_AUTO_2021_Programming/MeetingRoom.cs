@@ -15,19 +15,7 @@ namespace BT_AUTO_2021_Programming
 
         }
 
-        public MeetingRoom()
-        {
+         
 
-        }
-
-        public override double RoomArea()
-        {
-            return GetRoomArea();
-        }
-
-        public override int Capacity()
-        {
-            return GetCapacity();
-        }
     }
 }

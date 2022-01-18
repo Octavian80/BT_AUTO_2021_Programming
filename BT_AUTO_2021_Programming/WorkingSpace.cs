@@ -14,19 +14,7 @@ namespace BT_AUTO_2021_Programming
             this.numberOfLamps = numberOfLamps;
             this.laptop = laptop;
         }
+         
 
-        public WorkingSpace()
-        {
-
-        }
-        public override double RoomArea()
-        {
-            return GetRoomArea();
-        }
-
-        public override int Capacity()
-        {
-            return GetCapacity();
-        }
     }
 }

@@ -6,61 +6,52 @@ namespace BT_AUTO_2021_Programming
 {
     class Building :AbstractBuilding
     {
-        double buildingArea;
-        int totalFloors;
-        int totalRooms;
-        int totalCapacity;
-        Floor  floor ;
-        Room room;
-        
+         
+          List <Floor> floorsList; 
+          
+          
 
-
-        public Building(double buildingArea, int totalFloors, int totalRooms, int totalCapacity)
+        public Building(List<Floor> floorsList)
         {
-            this.buildingArea = buildingArea;
-            this.totalFloors = totalFloors;
-            this.totalRooms = totalRooms;
-            this.totalCapacity = totalCapacity;
-        }
-
-        public Building()
-        {
-
-        }
-
-        public Building(double buildingArea, int totalFloors, int totalRooms, int totalCapacity, Floor floor, Room room)
-        {
-            this.buildingArea = buildingArea;
-            this.totalFloors = totalFloors;
-            this.totalRooms = totalRooms;
-            this.totalCapacity = totalCapacity;
-            this.floor = floor;
-            this.room = room;
-        }
-
-        public override double ComputingArea()
-        {
-            return room.GetRoomArea();
+            this.floorsList = floorsList;
         }
 
         public override int GetNumberOfFloors()
         {
-            return totalFloors;
+            return floorsList.Count;
         }
 
         public override int GetTotalNumberOfRooms()
         {
-            return totalRooms ;
+            int nr = 0;
+            foreach (Floor flor in floorsList)
+                nr = nr + flor.GetNrRooms();
+            return nr ;
         }
 
         public override int TotalCapacity()
         {
-            return room.GetCapacity();
+            int nr = 0;
+            foreach (Floor flor in floorsList)
+                nr = nr + flor.GetCapacity();
+            return nr;
+        }
+
+
+        public override double ComputingArea()
+        {
+            double nr = 0;
+            foreach (Floor flor in floorsList)
+                nr = nr + flor.ComputeArea();
+            return nr;
         }
 
         public static void PrintBuilding(Building b)
         {
-            Console.WriteLine("Total rooms ");
+            Console.WriteLine(" Total Rooms: " + b.GetTotalNumberOfRooms());
+            Console.WriteLine(" Total Floors: " + b.GetNumberOfFloors());
+            Console.WriteLine(" Total Area: " + b.ComputingArea());
+            Console.WriteLine(" Total Capacity: " + b.ComputingArea());
         }
 
     }

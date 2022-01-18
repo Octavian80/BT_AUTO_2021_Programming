@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BT_AUTO_2021_Programming
 {
-    class Room:Floor
+    class Room
     {
         double roomArea;
         int numberOfDoors;
@@ -21,27 +21,17 @@ namespace BT_AUTO_2021_Programming
 
         public Room()
         {
-
         }
 
-        public virtual double RoomArea()
-        {
-            return roomArea;
-        }
-
-        public virtual  int Capacity()
-        {
-            return capacity;
-        }
-
-        public double GetRoomArea()
-        {
-            return this.roomArea;
-        }
-
-        public int GetCapacity()
+        public virtual  int GetRoomCapacity()
         {
             return this.capacity;
         }
+
+        public virtual double GetRoomArea()
+        {
+            return this.roomArea;
+        }
+         
     }
 }

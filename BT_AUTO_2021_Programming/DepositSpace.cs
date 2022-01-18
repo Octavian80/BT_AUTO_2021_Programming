@@ -12,21 +12,8 @@ namespace BT_AUTO_2021_Programming
         {
             this.numberOfShelves = numberOfShelves;
         }
-
-        public DepositSpace()
-        {
-
-        }
-
-        public override double RoomArea()
-        {
-            return GetRoomArea();
-        }
-
-        public override int Capacity()
-        {
-            return GetCapacity();
-        }
+         
+         
 
 
     }
