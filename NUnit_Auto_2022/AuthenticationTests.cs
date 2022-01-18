@@ -11,11 +11,11 @@ namespace NUnit_Auto_2022
     {
         IWebDriver driver;
         const string protocol = "http";
-        const string hostname = "86.121.149.150";
+        const string hostname = "86.121.249.150";
         const string port = "4999";
         const string path = "/#/login";
 
-        string url = protocol + "://" + hostname + port+path;
+        string url = protocol + "://" + hostname + ":"+port+path;
 
         [SetUp]
         public void Setup()
@@ -24,21 +24,26 @@ namespace NUnit_Auto_2022
             
 
         }
-        [Test]
+        [TestCase("dinosaur","dinosaurpassword")]
+        [TestCase("dinosaur","")]
+        [TestCase("","")]
+        [TestCase("", "dinosaurpass")]
 
-        public void Test01()
+        public void Test01(string user , string pass)
         {
+            Console.WriteLine(url);
             driver.Navigate().GoToUrl(url);
 
             var username = driver.FindElement(By.Id("input-login-username"));
             var password = driver.FindElement(By.Id("input-login-password"));
-            var submit = driver.FindElement(By.CssSelector("#login-form> div:nth-child(3)"));
+            var submit = driver.FindElement(By.CssSelector("#login-form > div:nth-child(3) > div.text-left.col-lg > button"));
 
             username.Clear();
-            username.SendKeys("alex");
+            username.SendKeys(user);
+            password.Clear();
+            password.SendKeys(pass);
 
-            username.Clear();
-            username.SendKeys("alex");
+            submit.Submit();
 
         }
 
