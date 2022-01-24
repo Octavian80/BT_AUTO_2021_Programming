@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -21,8 +23,47 @@ namespace NUnit_Auto_2022
         [SetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();
-            
+            //Chrome Options 
+            var options = new ChromeOptions();
+           // options.AddArgument("--start-maximized");
+           // options.AddArgument("headless");
+            options.AddArgument("ignore-certificate-errors");
+
+            var proxy = new Proxy();
+            proxy.HttpProxy = "127.0.0.1:8080";
+            proxy.IsAutoDetect = false;
+           // options.Proxy = proxy;
+            //options.AddExtension("C:\\Users\\Octavian\\Downloads\\extension_4_42_0_0.crx");
+
+
+            //firefox options 
+            var firefoxOptions = new FirefoxOptions();
+
+            string[] optionList =
+            {
+            //"--headless",
+            "--ignore-certificate-errors",
+            "--no-sanbox",
+            "--disable-gpu",
+
+            };
+
+            firefoxOptions.AddArguments(optionList);
+            FirefoxProfile fProfile = new FirefoxProfile();
+            fProfile.AddExtension("C:\\Users\\Octavian\\Downloads\\metamask-10.8.1-an+fx.xpi");
+            firefoxOptions.Profile = fProfile;
+
+            //Edge options
+
+            var edgeOptions = new EdgeOptions();
+            // edgeOptions.AddExtension("C:\\Users\\Octavian\\Downloads\\metamask-10.8.1-an+fx.xpi");
+            edgeOptions.AddArguments("args", "['start-maximized']");
+
+            // driver = new ChromeDriver(options);
+            //driver = new FirefoxDriver(firefoxOptions);
+            driver = new EdgeDriver(edgeOptions);
+            driver.Manage().Window.Maximize();
+
 
         }
         [TestCase("dinosaur","dinosaurpassword","","")]
@@ -121,6 +162,53 @@ namespace NUnit_Auto_2022
 
             var element = Utils.WaitForFluentElement(driver, 20, By.Id("btn2"));
             element.Click();
+        }
+
+
+        [Test]
+        public void Test06()
+        {
+
+            driver.Navigate().GoToUrl("https://magazinulcolectionarului.ro/");
+
+            var cookies = driver.Manage().Cookies;
+            Console.WriteLine("The site contains{0} cookies", cookies.AllCookies.Count);
+            Utils.PrintCookies(cookies);
+
+            Cookie myCookie = new Cookie("mycookie", "vine");
+            cookies.AddCookie(myCookie);
+            Utils.PrintCookies(cookies);
+            cookies.DeleteAllCookies();
+            Console.WriteLine("The site contains{0} cookies", cookies.AllCookies.Count);
+
+
+
+            Utils.TakeScreenshotWithDate(driver, "C://Temp", "screenshot", ScreenshotImageFormat.Png);
+        }
+
+        [Test]
+        public void Test07()
+        {
+            driver.Navigate().GoToUrl("http://86.121.249.150:4999/#/alert");
+            var alertButton = driver.FindElement(By.Id("alert-trigger"));
+            var confirmButton = driver.FindElement(By.Id("confirm-trigger"));
+            var promptButton = driver.FindElement(By.Id("prompt-trigger"));
+
+            alertButton.Click();
+            IAlert alert = driver.SwitchTo().Alert();
+            Console.WriteLine(alert.Text);
+            alert.Accept();
+
+            confirmButton.Click();
+            alert = driver.SwitchTo().Alert();
+            Console.WriteLine(alert.Text);
+            alert.Dismiss();
+
+            promptButton.Click();
+            alert = driver.SwitchTo().Alert();
+            Console.WriteLine(alert.Text);
+            alert.SendKeys("alex");
+            alert.Accept();
         }
 
 
