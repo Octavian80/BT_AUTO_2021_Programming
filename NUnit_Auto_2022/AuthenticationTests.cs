@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -59,9 +60,9 @@ namespace NUnit_Auto_2022
             // edgeOptions.AddExtension("C:\\Users\\Octavian\\Downloads\\metamask-10.8.1-an+fx.xpi");
             edgeOptions.AddArguments("args", "['start-maximized']");
 
-            // driver = new ChromeDriver(options);
+            driver = new ChromeDriver(options);
             //driver = new FirefoxDriver(firefoxOptions);
-            driver = new EdgeDriver(edgeOptions);
+           // driver = new EdgeDriver(edgeOptions);
             driver.Manage().Window.Maximize();
 
 
@@ -89,10 +90,10 @@ namespace NUnit_Auto_2022
             var username = driver.FindElement(By.Id("input-login-username"));
             var password = driver.FindElement(By.Id("input-login-password"));
             var submit = driver.FindElement(By.CssSelector("#login-form > div:nth-child(3) > div.text-left.col-lg > button"));
-
+            
             var usernameErorr = driver.FindElement(By.CssSelector("#login-form > div:nth-child(1) > div > div > div.text-left.invalid-feedback"));
             var passwordError = driver.FindElement(By.CssSelector("#login-form > div.form-group.row.row-cols-lg-true > div > div > div.text-left.invalid-feedback"));
-
+            
             username.Clear();
             username.SendKeys(user);
             password.Clear();
@@ -210,6 +211,40 @@ namespace NUnit_Auto_2022
             alert.SendKeys("alex");
             alert.Accept();
         }
+
+        [Test]
+
+        public void Test08()
+        {
+            driver.Navigate().GoToUrl(url + "hover");
+            var hoverButton = driver.FindElement(By.CssSelector("#root > div > div.content > div > div.container-table.text-center.container > div > button"));
+            Actions actions = new Actions(driver);
+            actions = actions.MoveToElement(hoverButton);
+            IAction action = actions.Build();
+            action.Perform();
+
+            var catSelect= driver.FindElement(By.Id("Cat"));
+            catSelect.Click();
+
+            var resultText = driver.FindElement(By.Id("result")).Text;
+
+            Assert.AreEqual("You last clicked the Cat", resultText);
+
+           
+
+              
+        }
+
+        [Test]
+
+        public void Test09()
+        {
+            driver.Navigate().GoToUrl(url+"stale");
+            var button = driver.FindElement(By.Id("stale-button"));
+
+        }
+
+
 
 
 
