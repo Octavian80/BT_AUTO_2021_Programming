@@ -101,7 +101,38 @@ namespace NUnit_Auto_2022
          
         }
 
+        [Test]
 
+        public void TestCokies()
+        {
+            driver.Navigate().GoToUrl("http://86.121.249.150:4999/#/cookie");
+            var buttonset = driver.FindElement(By.Id("set-cookie"));
+            var buttonremove = driver.FindElement(By.Id("delete-cookie"));
+            var cookievalue = driver.FindElement(By.Id("cookie-value"));
+
+            buttonset.Click();
+            
+            var setOfCookies = driver.Manage().Cookies;
+            var newcookie = setOfCookies.GetCookieNamed("gibberish");
+
+            Assert.AreEqual(newcookie.Value, cookievalue.Text);
+
+            buttonremove.Click();
+
+            Utils.PrintCookies(setOfCookies);
+
+
+            //var cookie = setOfCookies.GetCookieNamed(cookievalue.Text);
+
+            //Assert.areEqual(cookie,cookievalue.Text);
+            //Utils.PrintCookies(setOfCookies);
+            //buttonremove.Click();
+            
+
+
+
+
+        }
 
 
 

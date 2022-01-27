@@ -53,6 +53,16 @@ namespace NUnit_Auto_2022
             ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(finalFilePath, format);
         }
 
+        public static void ExecuteJsScript(IWebDriver driver , string script)
+        {
+            var jsExecutor = (IJavaScriptExecutor)driver;
+            var result = jsExecutor.ExecuteScript(script);
+            if (result!= null) 
+            { 
+            
+            Console.WriteLine(result.ToString());
+            }
+    }
 
     }
 }
