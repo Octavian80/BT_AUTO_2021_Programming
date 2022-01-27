@@ -122,11 +122,7 @@ namespace NUnit_Auto_2022
             Utils.PrintCookies(setOfCookies);
 
 
-            //var cookie = setOfCookies.GetCookieNamed(cookievalue.Text);
-
-            //Assert.areEqual(cookie,cookievalue.Text);
-            //Utils.PrintCookies(setOfCookies);
-            //buttonremove.Click();
+            
             
 
 
