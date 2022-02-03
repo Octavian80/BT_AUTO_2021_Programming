@@ -10,20 +10,14 @@ using System.Text;
 
 namespace NUnit_Auto_2022.Tests
 {
-    class AuthTest
+    class AuthTest:BaseTest
     {
-        IWebDriver driver;
+        
 
         string url = FrameworkConstants.GetUrl();
         
 
-        [SetUp]
-
-        public void Setup()
-        {
-            driver = new ChromeDriver();
-        }
-        // Test auth with Page Object model
+        
         [Test]
 
         public void BasicAuth()
@@ -50,11 +44,6 @@ namespace NUnit_Auto_2022.Tests
 
 
 
-        [TearDown]
-
-        public void TearDown()
-        {
-            driver.Quit();
-        }
+        
     }
 }

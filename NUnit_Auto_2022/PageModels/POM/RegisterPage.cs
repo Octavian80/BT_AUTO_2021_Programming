@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace NUnit_Auto_2022.PageModels.POM
 {
-    public class RegisterPage
+    public class RegisterPage:BasePage
     {
         const string registerTextSelector = "#register > formfield > legend";//css
         const string firstNameInputSelector = "newfirstname";//id
@@ -24,9 +24,8 @@ namespace NUnit_Auto_2022.PageModels.POM
         const string cookieAcceptSelector = "#cookies-consent > div > div > div:nth-child(2) > div > div.accept-cookies.col-xs-offset-4.col-xs-4.col-sm-offset-0.col-sm-3.pull-right.col-lg-2.text-right > button";
         IWebDriver driver;
 
-        public RegisterPage(IWebDriver driver)
+        public RegisterPage(IWebDriver driver) : base(driver)
         {
-            this.driver = driver;
         }
 
         public string CheckPage()
