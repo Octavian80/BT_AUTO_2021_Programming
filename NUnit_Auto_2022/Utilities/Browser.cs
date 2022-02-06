@@ -10,6 +10,8 @@ namespace NUnit_Auto_2022.Utilities
 {
     public class Browser
     {
+        // Return a driver, based on the enum WebBrowsers and set up the options baed on the cfg file
+        // Return a driver, based on the enum WebBrowsers and set up the options baed on the cfg file
         public static IWebDriver GetDriver(WebBrowsers browserType)
         {
             switch (browserType)
@@ -91,10 +93,39 @@ namespace NUnit_Auto_2022.Utilities
                 default:
                     {
                         // If the driver specified is not implemented
-                        throw new BrowerTypeException(browserType.ToString());
+                        throw new BrowserTypeException(browserType.ToString());
                     }
 
             }
+        }
+        // This method will provide a driver, based on the config file browser attribute
+        public static IWebDriver GetDriver()
+        {
+            WebBrowsers cfgBrowser;
+            switch (FrameworkConstants.configBrowser.ToUpper())
+            {
+                case "FIREFOX":
+                    {
+                        cfgBrowser = WebBrowsers.Firefox;
+                        break;
+                    }
+                case "CHROME":
+                    {
+                        cfgBrowser = WebBrowsers.Chrome;
+                        break;
+                    }
+                case "EDGE":
+                    {
+                        cfgBrowser = WebBrowsers.Edge;
+                        break;
+                    }
+                default:
+                    {
+                        throw new BrowserTypeException(String.Format("Browser {0} not supported", FrameworkConstants.configBrowser));
+                    }
+            }
+
+            return GetDriver(cfgBrowser);
         }
     }
 

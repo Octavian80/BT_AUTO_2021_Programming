@@ -22,4 +22,8 @@
     <Folder Include="TestData\" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /F $(ProjectDir)config.properties $(ProjectDir)$(OutDir)config.properties" />
+  </Target>
+
 </Project>
