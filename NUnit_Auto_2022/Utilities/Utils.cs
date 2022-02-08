@@ -3,6 +3,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace NUnit_Auto_2022
@@ -37,6 +38,13 @@ namespace NUnit_Auto_2022
             }
         }
 
+        /// <summary>
+        /// The method creates a screenshot based on the current date and saves it into a folder defined by the tester
+        /// </summary>
+        /// <param name="driver">The WebDriver instance / browser from which the screenshot will be taken</param>
+        /// <param name="path">The path where the screenshot will be saved </param>
+        /// <param name="fileName">The base file name that will have appended the date to have unique files</param>
+        /// <param name="format">Specify the image file format, example: JPG</param>
         public static void TakeScreenshotWithDate(IWebDriver driver, string path, string fileName, ScreenshotImageFormat format)
         {
             DirectoryInfo validation = new DirectoryInfo(path);
@@ -64,7 +72,11 @@ namespace NUnit_Auto_2022
             }
     }
 
-
+        /// <summary>
+        /// Converts a config file that has lines like key=value into a Dictionary with key and value
+        /// </summary>
+        /// <param name="configFilePath">The path of the config file</param>
+        /// <returns>A dictionary with a key value pair of type string and string representing the lines in the config file</returns>
         public static Dictionary<string, string> ReadConfig(string configFilePath)
         {
             var configData = new Dictionary<string, string>();
@@ -74,6 +86,12 @@ namespace NUnit_Auto_2022
                 configData.Add(values[0].Trim(), values[1].Trim());
             }
             return configData;
+        }
+
+        public static string[][] GetGenericData(string path)
+        {
+            var lines = File.ReadAllLines(path).Select(a => a.Split(',')).Skip(1);
+            return lines.ToArray();
         }
     }
 }
