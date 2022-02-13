@@ -52,6 +52,8 @@ namespace NUnit_Auto_2022.Tests
             }
         }
 
+        
+
         [Test,TestCaseSource("GetCredentialsDataCsv2")]
         
         public void BasicAuth(string username ,string password)

@@ -1,0 +1,5 @@
+﻿user,passw,confpass,firstName,lastName,email,dateOfBirth,userError,passerorr,passConferror,firstnamerorr,lastnamerror,emailerror
+,xxxxxxxxx,xxxxxxxxx,Popescu,Dacian,popescu@yahoo.com,11121980,Username is required!,,,,,
+x,xxxxxxxxx,xxxxxxxxx,Popescu,Dacian,popescu@yahoo.com,11121980,Minimum of 4 characters is required!,,,,,
+Dacian,xxxxxxxxx,xxxxxxxx,Popescu,Dacian,popescu@yahoo.com,11121980,,,Passwords do not match!,,,
+Dacian,xxxx,xxxxxxxx,Popescu,Dacian,popescu@yahoo.com,11121980,,Minimum of 8 characters is required!,Passwords do not match!,,,

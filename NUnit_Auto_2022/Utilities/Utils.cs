@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -93,5 +94,8 @@ namespace NUnit_Auto_2022
             var lines = File.ReadAllLines(path).Select(a => a.Split(',')).Skip(1);
             return lines.ToArray();
         }
+
+      
+
     }
 }
