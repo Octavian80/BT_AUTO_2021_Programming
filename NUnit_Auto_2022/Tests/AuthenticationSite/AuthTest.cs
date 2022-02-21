@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Xml.Serialization;
+using MySql.Data.MySqlClient;
 
 namespace NUnit_Auto_2022.Tests
 {
@@ -92,9 +93,51 @@ namespace NUnit_Auto_2022.Tests
 
         }
 
+        private static IEnumerable<TestCaseData> GetCredentialsDb()
+        {
+            // Read the connection string (server=;user=;password=;port=;database=) from json in conDetails variable
+            DataModels.DbConnString connString = Utils.JsonRead<DataModels.DbConnString>("appsettings.json");
+            String conDetails = connString.ConnectionStrings.DefaultConnection;
+            // connecting to DB 
+            using (MySqlConnection con = new MySqlConnection(conDetails))
+            {
+                //opening connection
+                con.Open();
+                // prepare to run the query in the DB
+                string query = "select username, password from test.credentialsOR;";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                //run the query in the db and get the data row by row
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        yield return new TestCaseData(reader["username"].ToString(), reader["password"].ToString());
+                    }
+                }
+
+            }
+
+        }
+
+        private static IEnumerable<TestCaseData> GetCredentialsDbEf()
+        {
+            // Read the connection string (server=;user=;password=;port=;database=) from json in conDetails variable
+            DataModels.DbConnString connString = Utils.JsonRead<DataModels.DbConnString>("appsettings.json");
+            String conDetails = connString.ConnectionStrings.DefaultConnection;
+            //Map the DB table to EF model
+            using (var context = new Other.CredentialsDbContext(conDetails))
+            {
+                var credentials = context.credentialsOR;
+                foreach (var cred in credentials)
+                {
+                    yield return new TestCaseData(cred.Username, cred.Password);
+                }
+            }
+        }
 
 
-        [Test,TestCaseSource("GetCredentialsDataXml")]
+
+        [Test,TestCaseSource("GetCredentialsDbEf")]
         
         public void BasicAuth(string username ,string password)
         {
