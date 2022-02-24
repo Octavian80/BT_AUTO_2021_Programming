@@ -95,16 +95,14 @@ namespace NUnit_Auto_2022.Tests
 
         private static IEnumerable<TestCaseData> GetCredentialsDb()
         {
-            // Read the connection string (server=;user=;password=;port=;database=) from json in conDetails variable
-            DataModels.DbConnString connString = Utils.JsonRead<DataModels.DbConnString>("appsettings.json");
-            String conDetails = connString.ConnectionStrings.DefaultConnection;
+
             // connecting to DB 
-            using (MySqlConnection con = new MySqlConnection(conDetails))
+            using (MySqlConnection con = new MySqlConnection(FrameworkConstants.decryptedCon))
             {
                 //opening connection
                 con.Open();
                 // prepare to run the query in the DB
-                string query = "select username, password from test.credentialsOR;";
+                string query = "select username, password from test.credentialsAG;";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 //run the query in the db and get the data row by row
                 using (var reader = cmd.ExecuteReader())
@@ -121,11 +119,10 @@ namespace NUnit_Auto_2022.Tests
 
         private static IEnumerable<TestCaseData> GetCredentialsDbEf()
         {
-            // Read the connection string (server=;user=;password=;port=;database=) from json in conDetails variable
-            DataModels.DbConnString connString = Utils.JsonRead<DataModels.DbConnString>("appsettings.json");
-            String conDetails = connString.ConnectionStrings.DefaultConnection;
+            /*            DataModels.DbConnString connString = Utils.JsonRead<DataModels.DbConnString>("appsettings.json");
+                        string conDetails = Utils.Decrypt(connString.ConnectionStrings.DefaultConnection, "btauto2022");*/
             //Map the DB table to EF model
-            using (var context = new Other.CredentialsDbContext(conDetails))
+            using (var context = new Other.CredentialsDbContext(FrameworkConstants.decryptedCon))
             {
                 var credentials = context.credentialsOR;
                 foreach (var cred in credentials)
