@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.FileIO;
+﻿using AventStack.ExtentReports;
+using Microsoft.VisualBasic.FileIO;
 using NPOI.XSSF.UserModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -64,6 +65,12 @@ namespace NUnit_Auto_2022
             sb.Replace(" ", "_");
             string finalFilePath = String.Format("{0}\\{1}_{2}.{3}", path, fileName, sb.ToString(), format);
             ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(finalFilePath, format);
+        }
+
+        public static MediaEntityModelProvider CaptureScreenShot(IWebDriver driver, string name)
+        {
+            var screenShot = ((ITakesScreenshot)driver).GetScreenshot().AsBase64EncodedString;
+            return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenShot, name).Build();
         }
 
         public static void ExecuteJsScript(IWebDriver driver , string script)
